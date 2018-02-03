@@ -7,7 +7,7 @@ focus_follows_mouse no
 # i3-gaps 
 # disable title bar to enable gaps
 for_window [class="^.*"] border pixel 0
-gaps inner 8
+gaps inner 15
 gaps outer 0
 
 #smart_gaps on
@@ -108,11 +108,9 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left  move left
-bindsym $mod+Shift+Down  move down
-bindsym $mod+Shift+Up    move up
-bindsym $mod+Shift+Right move right
+# move workspace to display
+bindsym $mod+Shift+Down  move workspace to LVDS1
+bindsym $mod+Shift+Up    move workspace to HDMI3
 
 # split in horizontal orientation
 bindsym $mod+shift+v split h
@@ -201,13 +199,12 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 exec export LC_ALL=en_US.UTF-8
 bar {
-  status_command i3blocks
+  status_command i3blocks 
   position top
 }
-
-exec_always ~/.i3/dualmon.sh
 
 exec_always feh --bg-scale ~/.i3/bg/hiden-ball.jpg
 exec compton
 
+exec_always ~/.i3/dualmon.sh
 exec xbindkeys
