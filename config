@@ -12,6 +12,10 @@ gaps outer 0
 
 #smart_gaps on
 
+
+# start a terminal
+bindsym $mod+Return exec termite
+
 # # #---Dropdown/Scratchpad Windows---# #
 # # First I have a tmux window used for background scripts.
 # # I'll later bind this to mod+u.
@@ -86,9 +90,6 @@ font pango:monospace 12
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-
-# start a terminal
-bindsym $mod+Return exec i3-sensible-terminal 
 
 # kill focused window
 bindsym $mod+Shift+q kill
