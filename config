@@ -6,7 +6,7 @@ focus_follows_mouse no
 
 # i3-gaps 
 # disable title bar to enable gaps
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 5
 gaps inner 15
 gaps outer 0
 
@@ -222,3 +222,5 @@ exec compton
 
 exec_always ~/.i3/dualmon.sh
 exec xbindkeys
+
+# vim: ft=config cms=#%s
