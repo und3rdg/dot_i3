@@ -19,13 +19,13 @@ bindsym $mod+Return exec termite
 # # #---Dropdown/Scratchpad Windows---# #
 # # First I have a tmux window used for background scripts.
 # # I'll later bind this to mod+u.
-for_window [instance="dropdown"] floating enable
-for_window [instance="dropdown"] resize set 625 400
-for_window [instance="dropdown"] move scratchpad
-for_window [instance="dropdown"] border pixel 5
-exec --no-startup-id termite --name=dropdown -e tmux
-bindsym $mod+u			[instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
-bindsym $mod+Shift+u		resize shrink height 10 px or 10 ppt
+# for_window [instance="dropdown"] floating enable
+# for_window [instance="dropdown"] resize set 625 400
+# for_window [instance="dropdown"] move scratchpad
+# for_window [instance="dropdown"] border pixel 5
+# exec --no-startup-id termite --name=dropdown -e tmux
+# bindsym $mod+u			[instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
+# bindsym $mod+Shift+u		resize shrink height 10 px or 10 ppt
 
 
 set $white #ffffff
@@ -217,10 +217,10 @@ bar {
   position top
 }
 
-exec_always feh --bg-scale ~/.i3/bg/dog.jpg
-exec compton
-
 exec_always ~/.i3/dualmon.sh
 exec xbindkeys
+
+exec compton
+exec_always feh --bg-scale ~/.i3/bg/dog.jpg
 
 # vim: ft=config cms=#%s
