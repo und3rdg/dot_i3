@@ -34,7 +34,12 @@ twoscreen() { # If multi-monitor is selected and there are two screens.
 
         primary=$(echo "$screens" | dmenu -i -p "Select primary display:")
         secondary=$(echo "$screens" | grep -v "$primary")
-        direction=$(printf "left\\nright" | dmenu -i -p "What side of $primary should $secondary be on?")
+        direction=$(printf "top\\nleft\\nright" | dmenu -i -p "What side of $primary should $secondary be on?")
+        if [[ $direction == "top" ]]; then
+          xrandr \
+            --output LVDS1 --primary --mode 1366x768  --pos 264x1080 --rotate normal  \
+            --output HDMI3           --mode 1920x1080 --pos 0x0      --rotate normal 
+          fi
         xrandr --output "$primary" --auto --scale 1.0x1.0 --output "$secondary" --"$direction"-of "$primary" --auto --scale 1.0x1.0
     fi
     }
@@ -61,7 +66,7 @@ allposs=$(xrandr -q | grep "connected")
 screens=$(echo "$allposs" | grep " connected" | awk '{print $1}')
 
 # Get user choice including multi-monitor and manual selection:
-chosen=$(printf "%s\\nmulti-monitor\\nmanual selection" "$screens" | dmenu -i -p "Select display arangement:") &&
+chosen=$(printf "multi-monitor\\nmanual selection\\n%s" "$screens" | dmenu -i -p "Select display arangement:") &&
 case "$chosen" in
 	"manual selection") arandr ; exit ;;
 	"multi-monitor") multimon ;;
