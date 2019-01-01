@@ -17,6 +17,11 @@
 # export BROWSER="firefox"
 # export TERMINAL="st"
 
+
+# #---i3 Settings---# #
+focus_follows_mouse no
+
+
 # #---Basic Definitions---# #
 # Needed for i3-gaps
 for_window [class="^.*"] border pixel 2
