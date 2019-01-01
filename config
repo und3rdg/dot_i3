@@ -1,4 +1,5 @@
 # vim: filetype=i3 syn=sh
+# vim: foldmethod=expr foldexpr=getline(v\:lnum)=~'^\\s*$'&&getline(v\:lnum+1)=~'^\\s*$'&&getline(v\:lnum+2)=~'\\S'?'<1'\:1
 #  _        _    ____  ____ ____
 # | |      / \  |  _ \| __ ) ___|
 # | |     / _ \ | |_) |  _ \___ \
@@ -35,8 +36,8 @@ set $reboot sudo -A reboot
 set $netrefresh --no-startup-id sudo -A systemctl restart NetworkManager
 set $hibernate sudo -A systemctl suspend
 
-# #---Dropdown Windows---# #
 
+# #---Dropdown Windows---# #
 # First I have a tmux window used for background scripts.
 # I'll later bind this to mod+u.
 for_window [instance="tmuxdd"] floating enable
@@ -52,6 +53,7 @@ for_window [instance="dropdowncalc"] resize set 800 300
 for_window [instance="dropdowncalc"] move scratchpad
 for_window [instance="dropdowncalc"] border pixel 2
 for_window [instance="dropdowncalc"] sticky enable
+
 
 # #---Starting External Scripts---# #
 # Setting the background:
@@ -114,6 +116,7 @@ bar {
 	modifier None
 }
 
+
 # #---Basic Bindings---# #
 bindsym $mod+Return 		exec $term
 bindsym $mod+Shift+Return	exec --no-startup-id samedir
@@ -137,6 +140,7 @@ bindsym $mod+Shift+Delete	exec --no-startup-id lmc truemute ; exec --no-startup-
 # Show selection:
 bindsym $mod+Insert		exec --no-startup-id showclip
 bindsym $mod+Pause		exec --no-startup-id xcqr
+
 
 # #---Letter Key Bindings---# #
 bindsym $mod+q			[con_id="__focused__" instance="^(?!dropdowncalc|tmuxdd).*$"] kill
@@ -221,6 +225,7 @@ bindsym $mod+Shift+n		floating toggle; sticky toggle; exec --no-startup-id botto
 bindsym $mod+m 			exec --no-startup-id $term -e ncmpcpp
 bindsym $mod+Shift+m		exec --no-startup-id lmc mute
 
+
 # #---Workspace Bindings---# #
 bindsym $mod+Home		workspace $ws1
 bindsym $mod+Shift+Home		move container to workspace $ws1
@@ -291,6 +296,7 @@ for_window [title="mpvfloat"] sticky enable
 for_window [title="mpvfloat"] border pixel 0
 no_focus [title="mpvfloat"]
 
+
 # #---Function Buttons---# #
 bindsym $mod+F1		exec --no-startup-id groff -kejpt -mom ~/.readme.mom -Tpdf | zathura -
 bindsym $mod+F2		restart
@@ -305,6 +311,7 @@ bindsym $mod+F10	exec --no-startup-id dmenuumount
 bindsym $mod+F11	exec --no-startup-id ducksearch
 bindsym $mod+F12	exec $term -e nmtui
 
+
 # #---Arrow Keys---# #
 bindsym $mod+Left		focus left
 bindsym $mod+Down		focus down
@@ -315,8 +322,8 @@ bindsym $mod+Shift+Down		move down
 bindsym $mod+Shift+Up		move up
 bindsym $mod+Shift+Right 	move right
 
-# #---Media Keys---# #
 
+# #---Media Keys---# #
 # Volume keys
 bindsym $mod+plus		exec --no-startup-id lmc up 5
 bindsym $mod+Shift+plus		exec --no-startup-id lmc up 15
@@ -340,6 +347,7 @@ bindsym $mod+Print		exec --no-startup-id dmenurecord
 bindsym $mod+Scroll_Lock	exec --no-startup-id "killall screenkey || screenkey"
 bindsym $mod+Delete		exec $stoprec
 bindsym XF86Launch1		exec --no-startup-id xset dpms force off
+
 
 # #---Extra XF86 Keys---# #
 # These are the extra media keys that some keyboards have.
