@@ -341,7 +341,7 @@ bindsym $mod+bracketright 	exec --no-startup-id lmc forward 10
 bindsym $mod+Shift+bracketright exec --no-startup-id lmc forward 120
 
 # For screenshots and recording
-bindsym Print 			exec --no-startup-id scrot
+bindsym Print 			exec --no-startup-id imagy-xfce4
 bindsym Shift+Print 		exec --no-startup-id scrot -u
 bindsym $mod+Print		exec --no-startup-id dmenurecord
 bindsym $mod+Scroll_Lock	exec --no-startup-id "killall screenkey || screenkey"
@@ -432,4 +432,5 @@ bindsym XF86Documents		exec $term -e ranger ~/Documents
 ##bindsym XF86Battery		exec
 ##bindsym XF86Bluetooth		exec
 bindsym XF86WLAN		exec $netrefresh
+exec_always --no-startup-id notify-send -i ~/.scripts/pix/larbs.png '<b>Welcome to LARBS:</b> Press Super+F1 for the manual.' -t 10000
 exec_always --no-startup-id notify-send -i ~/.scripts/pix/larbs.png '<b>Welcome to LARBS:</b> Press Super+F1 for the manual.' -t 10000
