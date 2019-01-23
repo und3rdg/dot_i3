@@ -25,7 +25,7 @@ focus_follows_mouse no
 
 # #---Basic Definitions---# #
 # Needed for i3-gaps
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 3
 gaps inner 15
 gaps outer 0
 set $term --no-startup-id $TERMINAL
@@ -92,12 +92,12 @@ set_from_resource $darkwhite	color7  #000000
 set_from_resource $white	color15 #000000
 set $transparent		#00000000
 
-#                       BORDER		BACKGROUND	TEXT		INDICATOR   CHILD_BORDER
-client.focused		$red		$red		$magenta	$darkmagenta		$darkblue
-client.unfocused	$transparent	$blue		$white		$darkblue		$darkblack
-client.focused_inactive	$transparent	$blue		$white		$darkblue		$darkblack
-client.urgent		$darkred	$darkred	$black		$darkred		$darkred
-client.background $black
+#                       BORDER       	 BACKGROUND   TEXT      INDICATOR     CHILD_BORDER
+client.focused          $red         	 $red         $white    $darkmagenta  $darkred
+client.unfocused        $transparent 	 $blue        $white    $darkblue     $darkblack
+client.focused_inactive $transparent 	 $darkgreen   $white    $darkblue     $darkblack
+client.urgent           $darkred     	 $darkred     $black    $darkred      $darkgreen
+client.background       $black
 
 bar {
 	font pango:mono 10
