@@ -34,13 +34,27 @@ twoscreen() { # If multi-monitor is selected and there are two screens.
 
         primary=$(echo "$screens" | dmenu -i -p "Select primary display:")
         secondary=$(echo "$screens" | grep -v "$primary")
-        direction=$(printf "top\\nleft\\nright" | dmenu -i -p "What side of $primary should $secondary be on?")
-        if [[ $direction == "top" ]]; then
-          xrandr \
-            --output LVDS1 --primary --mode 1366x768  --pos 264x1080 --rotate normal  \
-            --output HDMI3           --mode 1920x1080 --pos 0x0      --rotate normal 
-          fi
-        xrandr --output "$primary" --auto --scale 1.0x1.0 --output "$secondary" --"$direction"-of "$primary" --auto --scale 1.0x1.0
+        direction_input=$(printf "home\\ntop\\nleft\\nright" | dmenu -i -p "What side of $primary should $secondary be on?")
+        case $direction_input in
+            home)
+                xrandr --output DP-0 --primary --mode 2560x1440 --pos 0x1080 --rotate normal --output DVI-D-0 --mode 1920x1080 --pos 344x0 --rotate normal
+                ;;
+            top)
+                direction="above"
+                ;;
+            left)
+                direction="left-of"
+                ;;
+            rigth)
+                direction="right-of"
+                ;;
+            bottom)
+                direction="below"
+                ;;
+        esac
+        if [ -n "$direction" ]; then
+            xrandr --output "$primary" --auto --scale 1.0x1.0 --pos 0x1080 --output "$secondary" --"$direction" "$primary" --auto --scale 1.0x1.0 --pos 320x0
+        fi
     fi
     }
 
@@ -63,7 +77,7 @@ multimon() { # Multi-monitor handler.
 allposs=$(xrandr -q | grep "connected")
 
 # Get all connected screens.
-screens=$(echo "$allposs" | grep " connected" | awk '{print $1}')
+screens=$(echo "$allposs" | grep " connected" | awk '{print $1}' | tac)
 
 # Get user choice including multi-monitor and manual selection:
 chosen=$(printf "multi-monitor\\nmanual selection\\n%s" "$screens" | dmenu -i -p "Select display arangement:") &&
@@ -79,3 +93,5 @@ i3 restart
 remaps
 # Restart dunst to ensure proper location on screen
 pgrep -x dunst >/dev/null && killall dunst && setsid dunst &
+
+# vim: tabstop=4 sw=4
