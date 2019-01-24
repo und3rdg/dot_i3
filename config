@@ -105,10 +105,11 @@ bar {
 			background $darkblack
 			statusline $darkwhite
 			separator $cyan
-			focused_workspace  $blue $darkblue $darkblack
-        		active_workspace   $blue $blue $darkwhite
-      			inactive_workspace $darkblack $darkblack $white
-        		urgent_workspace   $darkblack $darkblack $white
+#                         BORDER      BACKGROUND  FONT
+			focused_workspace   $red        $darkred    $white
+      active_workspace    $darkgreen  $darkblack  $white
+      inactive_workspace  $darkblack  $darkblack  $white
+      urgent_workspace    $darkblack  $darkblack  $white
 		}
 	status_command i3blocks -c ~/.config/i3/i3blocks.cfg
 	position top
