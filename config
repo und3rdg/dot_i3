@@ -242,10 +242,10 @@ bindsym $mod+Shift+XF86Back	move container to workspace prev
 bindsym $mod+XF86Forward	workspace next
 bindsym $mod+Shift+XF86Forward	move container to workspace next
 bindsym $mod+semicolon		workspace next
-bindsym $mod+apostrophe		split horizontal ;; exec $term
-bindsym $mod+slash		split vertical ;; exec $term
+bindsym $mod+backslash		split horizontal ;; exec $term
+bindsym $mod+minus		split vertical ;; exec $term
 bindsym $mod+Shift+slash	kill
-bindsym $mod+backslash		workspace back_and_forth
+bindsym $mod+slash		workspace back_and_forth
 
 set $ws1 "1"
 set $ws2 "2"
@@ -328,7 +328,7 @@ bindsym $mod+Shift+Right 	move right
 # Volume keys
 bindsym $mod+plus		exec --no-startup-id lmc up 5
 bindsym $mod+Shift+plus		exec --no-startup-id lmc up 15
-bindsym $mod+minus 		exec --no-startup-id lmc down 5
+bindsym $mod+apostrophe 		exec --no-startup-id lmc down 5
 bindsym $mod+Shift+minus	exec --no-startup-id lmc down 15
 bindsym $mod+less 		exec --no-startup-id lmc prev
 bindsym $mod+Shift+less		exec --no-startup-id lmc replay
@@ -343,7 +343,7 @@ bindsym $mod+Shift+bracketright exec --no-startup-id lmc forward 120
 
 # For screenshots and recording
 bindsym Print 			exec --no-startup-id imagy-xfce4
-bindsym Shift+Print 		exec --no-startup-id scrot -u
+bindsym Shift+Print 		exec --no-startup-id "scrot -s '/tmp/scrot.png' -e 'xclip /tmp/scrot.png'"
 bindsym $mod+Print		exec --no-startup-id dmenurecord
 bindsym $mod+Scroll_Lock	exec --no-startup-id "killall screenkey || screenkey"
 bindsym $mod+Delete		exec $stoprec
