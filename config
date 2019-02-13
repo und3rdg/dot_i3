@@ -100,21 +100,21 @@ client.urgent           $darkred     	 $darkred     $black    $darkred      $dar
 client.background       $black
 
 bar {
-	font pango:mono 10
-	colors {
-			background $darkblack
-			statusline $darkwhite
-			separator $cyan
+    font pango:mono 10
+    colors {
+            background $darkblack
+            statusline $darkwhite
+            separator $cyan
 #                         BORDER      BACKGROUND  FONT
-			focused_workspace   $red        $darkred    $white
+            focused_workspace   $red        $darkred    $white
       active_workspace    $darkgreen  $darkblack  $white
       inactive_workspace  $darkblack  $darkblack  $white
       urgent_workspace    $darkblack  $darkblack  $white
-		}
-	status_command i3blocks -c ~/.config/i3/i3blocks.cfg
-	position top
-	mode dock
-	modifier None
+        }
+    status_command i3blocks -c ~/.config/i3/i3blocks.cfg
+    position top
+    mode dock
+    modifier None
 }
 
 
