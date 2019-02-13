@@ -25,7 +25,7 @@ focus_follows_mouse no
 
 # #---Basic Definitions---# #
 # Needed for i3-gaps
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 7
 gaps inner 15
 gaps outer 0
 set $term --no-startup-id $TERMINAL
