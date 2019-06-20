@@ -147,7 +147,7 @@ bindsym $mod+Pause		exec --no-startup-id xcqr
 bindsym $mod+q			[con_id="__focused__" instance="^(?!dropdowncalc|tmuxdd).*$"] kill
 bindsym $mod+Shift+q		[con_id="__focused__" instance="^(?!dropdowncalc|tmuxdd).*$"] kill
 
-bindsym $mod+w			exec $term -e nmtui
+# bindsym $mod+w			exec $term -e nmtui
 bindsym $mod+Shift+w		exec --no-startup-id $BROWSER
 
 bindsym $mod+e			exec $term -e neomutt && pkill -RTMIN+12 i3blocks
@@ -274,6 +274,12 @@ bindsym $mod+8		workspace $ws8
 bindsym $mod+9		workspace $ws9
 bindsym $mod+0		workspace $ws10
 
+
+0060:fixme:font:get_nearest_charset returning DEFAULT_CHARSET face->fs.fsCsb[0] = 20000000 file = (null)
+0060:fixme:font:get_nearest_charset TCI failing on 20000000
+0060:fixme:font:get_nearest_charset returning DEFAULT_CHARSET face->fs.fsCsb[0] = 20000000 file = (null)
+/home/undg
+
 # move focused container to workspace
 bindsym $mod+Shift+1	move container to workspace $ws1
 bindsym $mod+Shift+2	move container to workspace $ws2
@@ -288,12 +294,14 @@ bindsym $mod+Shift+0	move container to workspace $ws10
 
 for_window [class="Pinentry"] sticky enable
 for_window [class="sent"] border pixel 0px
-for_window [class="Blender"] move to workspace $ws6
+# for_window [class="Blender"] move to workspace $ws6
 for_window [class="marble"] move to workspace $ws7
 for_window [title="GIMP Startup"] move workspace $ws5
 for_window [class="Gimp"] move workspace $ws5
 for_window [window_role="GtkFileChooserDialog"] resize shrink height 10 px
-for_window [title="Default - Wine desktop"] floating enable
+# for_window [title="Default - Wine desktop"] floating enable
+for_window [title="XenonTrade"] floating enable
+for_window [title="Path Of Exile"] floating disable
 
 # Bindings to make the webcam float and stick.
 for_window [title="mpvfloat"] floating enable
