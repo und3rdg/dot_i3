@@ -275,11 +275,6 @@ bindsym $mod+9		workspace $ws9
 bindsym $mod+0		workspace $ws10
 
 
-0060:fixme:font:get_nearest_charset returning DEFAULT_CHARSET face->fs.fsCsb[0] = 20000000 file = (null)
-0060:fixme:font:get_nearest_charset TCI failing on 20000000
-0060:fixme:font:get_nearest_charset returning DEFAULT_CHARSET face->fs.fsCsb[0] = 20000000 file = (null)
-/home/undg
-
 # move focused container to workspace
 bindsym $mod+Shift+1	move container to workspace $ws1
 bindsym $mod+Shift+2	move container to workspace $ws2
