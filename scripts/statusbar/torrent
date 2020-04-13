@@ -16,7 +16,7 @@ transmission-remote -l | grep % |
 
 case $BLOCK_BUTTON in
     1) $TERMINAL -e transmission-remote-cli ;;
-    3) pgrep -x dunst >/dev/null && notify-send "<b>Torrent module:</b>
+    3) pgrep -x dunst >/dev/null && notify-send "Torrent module:
 🛑: paused
 ⏳: waiting
 🔽: downloading
