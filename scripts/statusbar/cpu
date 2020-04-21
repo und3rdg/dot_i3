@@ -10,3 +10,4 @@ $(ps axch -o cmd:15,%cpu --sort=-%cpu | head)" ;;
 esac
 
 sensors | awk '/Core 0/ {print $3}'
+cat /proc/loadavg | cut -f 1 -d " "
