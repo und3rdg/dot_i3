@@ -1,4 +1,4 @@
-# vim: filetype=i3 syn=sh
+# vim: filetype=config syn=sh
 #  _        _    ____  ____ ____
 # | |      / \  |  _ \| __ ) ___|
 # | |     / _ \ | |_) |  _ \___ \
@@ -27,6 +27,7 @@ focus_follows_mouse no
 for_window [class="^.*"] border pixel 7
 gaps inner 0
 gaps outer 0
+
 set $term --no-startup-id $TERMINAL
 set $mod Mod4
 set $stoprec --no-startup-id dmenurecord kill
@@ -34,6 +35,14 @@ set $shutdown sudo -A shutdown -h now
 set $reboot sudo -A reboot
 set $netrefresh --no-startup-id sudo -A systemctl restart NetworkManager
 set $hibernate sudo -A systemctl suspend
+
+set $display1 DisplayPort-0 
+set $display2 DisplayPort-1
+set $display3 HDMI-A-0
+
+# set $display1 DP-1 
+# set $display2 DP-2
+# set $display3 HDMI-1
 
 
 # #---Dropdown Windows---# #
@@ -190,7 +199,7 @@ bindsym $mod+f			fullscreen toggle
 bindsym $mod+Shift+f	mode "$freeze" ;; exec --no-startup-id notify-send "<b>Distraction-free mode activated.</b> Press Super+Shift+f to return."
 
 bindsym $mod+g			workspace prev
-bindsym $mod+Shift+g	exec --no-startup-id gimp; workspace $ws5
+#bindsym $mod+Shift+g	
 
 bindsym $mod+h			focus left
 bindsym $mod+Shift+h	move left 30
@@ -251,11 +260,11 @@ bindsym $mod+Shift+slash	kill
 bindsym $mod+slash		workspace back_and_forth
 
 set $ws1 "1"
-set $ws2 "2"
+set $ws2 "2:game"
 set $ws3 "3"
 set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
+set $ws5 "5:kodi"
+set $ws6 "6:spotify"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
@@ -286,16 +295,31 @@ bindsym $mod+Shift+8	move container to workspace $ws8
 bindsym $mod+Shift+9	move container to workspace $ws9
 bindsym $mod+Shift+0	move container to workspace $ws10
 
+# set $w_POE [title="Path of Exile"] 
+set $WINDOW_poe [class="steam_app_238960"] 
+set $WINDOW_xenotrade [class="XenonTrade"]
+set $WINDOW_steam [class="Steam"]
+set $WINDOW_spotify [class="Spotify"]
+set $WINDOW_kodi [class="Kodi"]
+
+for_window $WINDOW_poe move workspace $ws2
+for_window $WINDOW_xenotrade move workspace $ws2
+
+for_window $WINDOW_steam move workspace $ws3
+for_window $WINDOW_kodi move workspace $ws5
+for_window $WINDOW_spotify move workspace $ws6
+
+
 for_window [class="Pinentry"] sticky enable
 for_window [class="sent"] border pixel 0px
 # for_window [class="Blender"] move to workspace $ws6
-for_window [class="marble"] move to workspace $ws7
-for_window [title="GIMP Startup"] move workspace $ws5
-for_window [class="Gimp"] move workspace $ws5
+# for_window [class="marble"] move to workspace $ws7
 for_window [window_role="GtkFileChooserDialog"] resize shrink height 10 px
-# for_window [title="Default - Wine desktop"] floating enable
-for_window [title="XenonTrade"] floating enable
-for_window [title="Path Of Exile"] floating disable
+
+for_window $WINDOW_poe floating disable
+for_window $WINDOW_xenotrade floating enable
+for_window $WINDOW_xenotrade sticky enable
+for_window $WINDOW_xenotrade border pixel 2px
 
 # Bindings to make the webcam float and stick.
 for_window [title="mpvfloat"] floating enable
@@ -439,4 +463,18 @@ bindsym XF86Documents		exec $term -e ranger ~/Documents
 ##bindsym XF86Battery		exec
 ##bindsym XF86Bluetooth		exec
 bindsym XF86WLAN		exec $netrefresh
-exec_always --no-startup-id notify-send -i ~/.scripts/pix/larbs.png 'Welcome to LARBS: Press Super+F1 for the manual.' -t 10000
+exec_always --no-startup-id notify-send -i ~/.scripts/pix/larbs.png 'Welcome to LARBS: Press Super+F1 for the manual.' -t 5000
+
+exec_always --no-startup-id ~/.screenlayout/./init.sh
+
+workspace 1 output $display1
+workspace 2 output $display1
+workspace 3 output $display1
+
+workspace 4 output $display3
+workspace 5 output $display3
+workspace 6 output $display3
+
+workspace 7 output $display2
+workspace 8 output $display2
+workspace 9 output $display2
