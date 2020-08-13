@@ -260,9 +260,9 @@ bindsym $mod+Shift+slash	kill
 bindsym $mod+slash		workspace back_and_forth
 
 set $ws1 "1"
-set $ws2 "2:game"
+set $ws2 "2"
 set $ws3 "3"
-set $ws4 "4"
+set $ws4 "4:game"
 set $ws5 "5:kodi"
 set $ws6 "6:spotify"
 set $ws7 "7"
@@ -302,10 +302,11 @@ set $WINDOW_steam [class="Steam"]
 set $WINDOW_spotify [class="Spotify"]
 set $WINDOW_kodi [class="Kodi"]
 
-for_window $WINDOW_poe move workspace $ws2
-for_window $WINDOW_xenotrade move workspace $ws2
 
 for_window $WINDOW_steam move workspace $ws3
+
+for_window $WINDOW_poe move workspace $ws4
+for_window $WINDOW_xenotrade move workspace $ws4
 for_window $WINDOW_kodi move workspace $ws5
 for_window $WINDOW_spotify move workspace $ws6
 
@@ -465,7 +466,7 @@ bindsym XF86Documents		exec $term -e ranger ~/Documents
 bindsym XF86WLAN		exec $netrefresh
 exec_always --no-startup-id notify-send -i ~/.scripts/pix/larbs.png 'Welcome to LARBS: Press Super+F1 for the manual.' -t 5000
 
-exec_always --no-startup-id ~/.screenlayout/./init.sh
+exec_once --no-startup-id ~/.screenlayout/./init.sh
 
 workspace 1 output $display1
 workspace 2 output $display1
