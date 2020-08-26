@@ -269,12 +269,12 @@ bindsym $mod+slash		workspace back_and_forth
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
-set $ws4 "4:game"
+set $ws4 "4"
 set $ws5 "5:kodi"
 set $ws6 "6:spotify"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9"
+set $ws9 "9:game"
 set $ws10 "10"
 
 # switch to workspace
@@ -311,17 +311,17 @@ for_window $WINDOW_spotify move workspace $ws6
 for_window $WINDOW_poe move workspace $ws9
 for_window $WINDOW_xenotrade move workspace $ws9
 
-workspace 1 output $display1
-workspace 2 output $display1
-workspace 3 output $display1
+workspace 1 output $display2
+workspace 2 output $display2
+workspace 3 output $display2
 
 workspace 4 output $display3
 workspace 5 output $display3
 workspace 6 output $display3
 
-workspace 7 output $display2
-workspace 8 output $display2
-workspace 9 output $display2
+workspace 7 output $display1
+workspace 8 output $display1
+workspace 9 output $display1
 
 for_window [class="Pinentry"] sticky enable
 for_window [class="sent"] border pixel 0px
