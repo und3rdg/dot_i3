@@ -45,7 +45,7 @@ set $display3 HDMI-A-0
 # set $display3 HDMI-1
 
 set $WINDOW_poe [class="steam_app_238960"] 
-set $WINDOW_xenotrade [class="XenonTrade"]
+set $WINDOW_xenotrade [class="xenonTrade"]
 set $WINDOW_steam [class="Steam"]
 set $WINDOW_spotify [class="Spotify"]
 set $WINDOW_kodi [class="Kodi"]
