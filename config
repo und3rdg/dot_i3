@@ -49,6 +49,7 @@ set $WINDOW_xenotrade [class="xenonTrade"]
 set $WINDOW_steam [class="Steam"]
 set $WINDOW_spotify [class="Spotify"]
 set $WINDOW_kodi [class="Kodi"]
+set $WINDOW_plex [class="plexmediaplayer"]
 
 
 # #---Dropdown Windows---# #
@@ -270,7 +271,7 @@ set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
-set $ws5 "5:kodi"
+set $ws5 "5:media"
 set $ws6 "6:spotify"
 set $ws7 "7"
 set $ws8 "8"
@@ -306,6 +307,7 @@ bindsym $mod+Shift+0	move container to workspace $ws10
 for_window $WINDOW_steam move workspace $ws3
 
 for_window $WINDOW_kodi move workspace $ws5
+for_window $WINDOW_plex move workspace $ws5
 for_window $WINDOW_spotify move workspace $ws6
 
 for_window $WINDOW_poe move workspace $ws9
