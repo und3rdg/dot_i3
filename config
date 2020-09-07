@@ -349,13 +349,13 @@ bindsym $mod+F2		restart
 bindsym $mod+F3		exec --no-startup-id displayselect
 bindsym $mod+F4		exec --no-startup-id prompt "Hibernate computer?" "$hibernate"
 bindsym $mod+F5		exec --no-startup-id $netrefresh
-bindsym $mod+F6		exec --no-startup-id $term -e transmission-remote-cli
-bindsym $mod+F7		exec --no-startup-id td-toggle
-bindsym $mod+F8		exec --no-startup-id ~/.config/mutt/etc/mailsync.sh
+# bindsym $mod+F6		exec --no-startup-id $term -e transmission-remote-cli
+# bindsym $mod+F7		exec --no-startup-id td-toggle
+# bindsym $mod+F8		exec --no-startup-id ~/.config/mutt/etc/mailsync.sh
 bindsym $mod+F9		exec --no-startup-id dmenumount
 bindsym $mod+F10	exec --no-startup-id dmenuumount
 bindsym $mod+F11	exec --no-startup-id ducksearch
-bindsym $mod+F12	exec $term -e nmtui
+# bindsym $mod+F12	exec $term -e nmtui
 
 
 # #---Arrow Keys---# #
@@ -479,7 +479,19 @@ bindsym XF86Documents		exec $term -e ranger ~/Documents
 ##bindsym XF86Bluetooth		exec
 bindsym XF86WLAN		exec $netrefresh
 
-exec_always --no-startup-id notify-send -i ~/.scripts/pix/larbs.png 'Welcome to LARBS: Press Super+F1 for the manual.' -t 5000
-
 exec_once --no-startup-id ~/.screenlayout/./init.sh
+
+# Software KVM switch.
+exec_once --no-startup-id notify-send "Start barrier [KVM]" 
+exec_once --no-startup-id barrier
+
+# MOUSE CONTROLL
+# Press $mod, click into a window using your left mouse button, and drag it to the position you want.
+# When holding the floating modifier, you can resize a floating window by pressing the right mouse button
+# on it and moving around while holding it. If you hold the shift button as well, the aspect ratio will be preserved.
+floating_modifier $mod
+
+# The middle button toggles floating
+bindsym --whole-window $mod+button2 floating toggle
+
 
