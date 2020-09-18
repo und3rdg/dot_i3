@@ -36,15 +36,17 @@ set $reboot sudo -A reboot
 set $netrefresh --no-startup-id sudo -A systemctl restart NetworkManager
 set $hibernate sudo -A systemctl suspend
 
-set $display1 DisplayPort-0 
-set $display2 DisplayPort-1
-set $display3 HDMI-A-0
+set $dp_left DisplayPort-1 
+set $dp_right DisplayPort-0
+set $dp_top HDMI-A-0
 
-# set $display1 DP-1 
-# set $display2 DP-2
-# set $display3 HDMI-1
+# set $dp_left DP-1 
+# set $dp_right DP-2
+# set $dp_top HDMI-1
 
 set $WINDOW_poe [class="steam_app_238960"] 
+set $WINDOW_gta5 [class="steam_app_271590"] 
+set $WINDOW_portal2 [class="portal2_linux"] 
 set $WINDOW_xenotrade [class="xenonTrade"]
 set $WINDOW_steam [class="Steam"]
 set $WINDOW_spotify [class="Spotify"]
@@ -269,13 +271,13 @@ bindsym $mod+slash		workspace back_and_forth
 
 set $ws1 "1"
 set $ws2 "2"
-set $ws3 "3"
+set $ws3 "3:game"
 set $ws4 "4"
 set $ws5 "5:media"
-set $ws6 "6:spotify"
+set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9:game"
+set $ws9 "9"
 set $ws10 "10"
 
 # switch to workspace
@@ -304,26 +306,28 @@ bindsym $mod+Shift+9	move container to workspace $ws9
 bindsym $mod+Shift+0	move container to workspace $ws10
 
 
+workspace 1 output $dp_left
+workspace 2 output $dp_left
+workspace 3 output $dp_left
+
+workspace 4 output $dp_top
+workspace 5 output $dp_top
+workspace 6 output $dp_top
+
+workspace 7 output $dp_right
+workspace 8 output $dp_right
+workspace 9 output $dp_right
+
+
 for_window $WINDOW_steam move workspace $ws3
+for_window $WINDOW_poe move workspace $ws3
+for_window $WINDOW_portal2 move workspace $ws3
+for_window $WINDOW_gta5 move workspace $ws3
+for_window $WINDOW_xenotrade move workspace $ws3
 
 for_window $WINDOW_kodi move workspace $ws5
 for_window $WINDOW_plex move workspace $ws5
-for_window $WINDOW_spotify move workspace $ws6
 
-for_window $WINDOW_poe move workspace $ws9
-for_window $WINDOW_xenotrade move workspace $ws9
-
-workspace 1 output $display1
-workspace 2 output $display1
-workspace 3 output $display1
-
-workspace 4 output $display3
-workspace 5 output $display3
-workspace 6 output $display3
-
-workspace 7 output $display2
-workspace 8 output $display2
-workspace 9 output $display2
 
 for_window [class="Pinentry"] sticky enable
 for_window [class="sent"] border pixel 0px
@@ -331,10 +335,15 @@ for_window [class="sent"] border pixel 0px
 # for_window [class="marble"] move to workspace $ws7
 for_window [window_role="GtkFileChooserDialog"] resize shrink height 10 px
 
+for_window $WINDOW_portal2 floating disable
+for_window $WINDOW_portal2 fullscreen
+for_window $WINDOW_steam layout tabbed
 for_window $WINDOW_poe floating disable
+for_window $WINDOW_gta5 floating disable
 for_window $WINDOW_xenotrade floating enable
 for_window $WINDOW_xenotrade sticky enable
 for_window $WINDOW_xenotrade border pixel 2px
+for_window $WINDOW_kodi border pixel 1px
 
 # Bindings to make the webcam float and stick.
 for_window [title="mpvfloat"] floating enable
