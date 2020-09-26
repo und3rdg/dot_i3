@@ -78,7 +78,7 @@ exec_always --no-startup-id feh --bg-scale ~/.config/i3/wallpaper/dog.jpg
 # Starts dunst for notifications:
 exec --no-startup-id dunst
 # Composite manager:
-exec --no-startup-id picom
+exec --no-startup-id picom --config /dev/null
 # Runs the key remapping scripts
 exec --no-startup-id remaps
 # Unclutter makes the mouse invisible after a brief period
