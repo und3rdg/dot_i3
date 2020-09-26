@@ -48,6 +48,7 @@ set $WINDOW_poe [class="steam_app_238960"]
 set $WINDOW_gta5 [class="steam_app_271590"] 
 set $WINDOW_portal2 [class="portal2_linux"] 
 set $WINDOW_xenotrade [class="xenonTrade"]
+set $WINDOW_awakened [class="awakened-poe-trade"]
 set $WINDOW_steam [class="Steam"]
 set $WINDOW_spotify [class="Spotify"]
 set $WINDOW_kodi [class="Kodi"]
@@ -343,6 +344,7 @@ for_window $WINDOW_gta5 floating disable
 for_window $WINDOW_xenotrade floating enable
 for_window $WINDOW_xenotrade sticky enable
 for_window $WINDOW_xenotrade border pixel 2px
+for_window $WINDOW_awakened border pixel 1px
 for_window $WINDOW_kodi border pixel 1px
 
 # Bindings to make the webcam float and stick.
