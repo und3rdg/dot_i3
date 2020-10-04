@@ -490,8 +490,6 @@ bindsym XF86Documents		exec $term -e ranger ~/Documents
 ##bindsym XF86Bluetooth		exec
 bindsym XF86WLAN		exec $netrefresh
 
-exec_once --no-startup-id ~/.screenlayout/./init.sh
-
 # Software KVM switch.
 exec_once --no-startup-id notify-send "Start barrier [KVM]" 
 exec_once --no-startup-id barrier
@@ -505,4 +503,5 @@ floating_modifier $mod
 # The middle button toggles floating
 bindsym --whole-window $mod+button2 floating toggle
 
+exec --no-startup-id d3 # ~/.screenlayout/d.sh
 
