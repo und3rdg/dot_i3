@@ -362,7 +362,7 @@ bindsym $mod+F3		exec --no-startup-id displayselect
 bindsym $mod+F4		exec --no-startup-id prompt "Hibernate computer?" "$hibernate"
 bindsym $mod+F5		exec --no-startup-id $netrefresh
 # bindsym $mod+F6		exec --no-startup-id $term -e transmission-remote-cli
-# bindsym $mod+F7		exec --no-startup-id td-toggle
+bindsym $mod+F7		exec --no-startup-id ~/bin/spotifyd-no-daemon
 bindsym $mod+F8		exec --no-startup-id ~/bin/droicam-lister
 bindsym $mod+F9		exec --no-startup-id dmenumount
 bindsym $mod+F10	exec --no-startup-id dmenuumount
