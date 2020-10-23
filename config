@@ -504,5 +504,8 @@ floating_modifier $mod
 # The middle button toggles floating
 bindsym --whole-window $mod+button2 floating toggle
 
+bindsym --whole-window $mod+button4 workspace prev
+bindsym --whole-window $mod+button5 workspace next
+
 exec --no-startup-id d3 # ~/.screenlayout/d.sh
 
