@@ -250,7 +250,8 @@ bindsym $mod+q			[con_id="__focused__" instance="^(?!dropdowncalc|tmuxdd).*$"] k
 bindsym $mod+Shift+q		[con_id="__focused__" instance="^(?!dropdowncalc|tmuxdd).*$"] kill
 
 # bindsym $mod+w			exec $term -e nmtui
-bindsym $mod+Shift+w		exec --no-startup-id $BROWSER
+bindsym $mod+Shift+w		exec --no-startup-id $CHROME
+bindsym $mod+Shift+f		exec --no-startup-id $FIREFOX
 
 bindsym $mod+e			exec $term -e neomutt && pkill -RTMIN+12 i3blocks
 bindsym $mod+Shift+e		exec --no-startup-id tutorialvids
@@ -286,12 +287,7 @@ bindsym $mod+Shift+s	gaps inner current minus 5
 bindsym $mod+d			exec --no-startup-id dmenu_run
 bindsym $mod+Shift+d	gaps inner current set 0; gaps outer current set 0
 
-set $freeze Distraction-free mode (super+shift+f to reactivate bindings)
-mode "$freeze" { bindsym $mod+Shift+f mode "default"
-}
-
 bindsym $mod+f			fullscreen toggle
-bindsym $mod+Shift+f	mode "$freeze" ;; exec --no-startup-id notify-send "<b>Distraction-free mode activated.</b> Press Super+Shift+f to return."
 
 bindsym $mod+g			workspace prev
 #bindsym $mod+Shift+g	
