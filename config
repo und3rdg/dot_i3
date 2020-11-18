@@ -40,11 +40,6 @@ set $dp_left DisplayPort-1
 set $dp_right DisplayPort-0
 set $dp_top HDMI-A-0
 
-# set $dp_left DP-1 
-# set $dp_right DP-2
-# set $dp_top HDMI-1
-
-
 # #---Starting External Scripts---# #
 # Setting the background:
 exec_always --no-startup-id feh --bg-scale ~/.config/i3/wallpaper/dog.jpg
@@ -56,12 +51,17 @@ exec --no-startup-id picom --config /dev/null
 exec --no-startup-id remaps
 # Unclutter makes the mouse invisible after a brief period
 exec --no-startup-id unclutter
+# Software KVM switch.
+exec_once --no-startup-id notify-send "Start barrier [KVM]" 
+exec_once --no-startup-id barrier
 # Run the script to update the mpd i3block on change.
 #exec_always --no-startup-id mpdupdate
 # mpd startup
 #exec --no-startup-id mpd
 # Podboat automatic queue and download
 # exec_always --no-startup-id podentr
+
+exec --no-startup-id ~/.screenlayout/init.sh
 
 # Set Xresources colors:
 set_from_resource $darkblack	color0  #000000
@@ -90,6 +90,12 @@ client.urgent           $darkred     	 $darkred     $black    $darkred      $dar
 client.background       $black
 
 bar {
+    tray_output $dp_right
+    separator_symbol "|"
+    status_command i3blocks -c ~/.config/i3/i3blocks.cfg
+    position top
+    mode dock
+    modifier None
     font pango:mono 10
     colors {
             background $darkblack
@@ -101,10 +107,6 @@ bar {
             inactive_workspace  $darkblack  $darkblack  $white
             urgent_workspace    $darkblack  $darkblack  $white
         }
-    status_command i3blocks -c ~/.config/i3/i3blocks.cfg
-    position top
-    mode dock
-    modifier None
 }
 
 
@@ -487,10 +489,6 @@ bindsym XF86Documents		exec $term -e ranger ~/Documents
 ##bindsym XF86Bluetooth		exec
 bindsym XF86WLAN		exec $netrefresh
 
-# Software KVM switch.
-exec_once --no-startup-id notify-send "Start barrier [KVM]" 
-exec_once --no-startup-id barrier
-
 # MOUSE CONTROLL
 # Press $mod, click into a window using your left mouse button, and drag it to the position you want.
 # When holding the floating modifier, you can resize a floating window by pressing the right mouse button
@@ -503,5 +501,4 @@ bindsym --whole-window $mod+button2 floating toggle
 bindsym --whole-window $mod+button4 workspace prev
 bindsym --whole-window $mod+button5 workspace next
 
-exec --no-startup-id d3 # ~/.screenlayout/d.sh
 
