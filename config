@@ -54,6 +54,7 @@ exec --no-startup-id unclutter
 # Software KVM switch.
 exec_once --no-startup-id notify-send "Start barrier [KVM]" 
 exec_once --no-startup-id barrier
+exec_once --no-startup-id flameshot
 # Run the script to update the mpd i3block on change.
 #exec_always --no-startup-id mpdupdate
 # mpd startup
@@ -397,7 +398,7 @@ bindsym $mod+bracketright 	exec --no-startup-id lmc forward 10
 bindsym $mod+Shift+bracketright exec --no-startup-id lmc forward 120
 
 # For screenshots and recording
-bindsym Print 			exec --no-startup-id imagy-xfce4
+bindsym Print 			exec --no-startup-id flameshot gui
 bindsym Shift+Print 		exec --no-startup-id "scrot -s '/tmp/scrot.png' -e 'xclip /tmp/scrot.png'"
 # bindsym $mod+Print		exec --no-startup-id dmenurecord
 bindsym $mod+Scroll_Lock	exec --no-startup-id "killall screenkey || screenkey"
