@@ -25,8 +25,8 @@ focus_follows_mouse no
 # #---Basic Definitions---# #
 # Needed for i3-gaps
 for_window [class="^.*"] border pixel 7
-gaps inner 0
-gaps outer 0
+# gaps inner 0
+# gaps outer 0
 
 set $term --no-startup-id $TERMINAL
 set $mod Mod4
@@ -62,7 +62,7 @@ exec_once --no-startup-id flameshot
 # Podboat automatic queue and download
 # exec_always --no-startup-id podentr
 
-exec --no-startup-id ~/.screenlayout/init.sh
+# exec --no-startup-id ~/.screenlayout/init.sh
 
 # Set Xresources colors:
 set_from_resource $darkblack	color0  #000000
@@ -259,7 +259,7 @@ bindsym $mod+Shift+f		exec --no-startup-id $FIREFOX
 bindsym $mod+e			exec $term -e neomutt && pkill -RTMIN+12 i3blocks
 bindsym $mod+Shift+e		exec --no-startup-id tutorialvids
 
-bindsym $mod+r 			exec $term -e ranger
+bindsym $mod+r 			exec $term -e vifm
 bindsym $mod+Shift+r	exec --no-startup-id winresize
 
 bindsym $mod+t			split toggle
@@ -284,11 +284,11 @@ bindsym $mod+Shift+p	exec --no-startup-id lmc pause
 bindsym $mod+a			exec --no-startup-id ddspawn dropdowncalc -f mono:pixelsize=24
 bindsym $mod+Shift+a	exec $term -e pulsemixer
 
-bindsym $mod+s			gaps inner current plus 5
-bindsym $mod+Shift+s	gaps inner current minus 5
+# bindsym $mod+s			gaps inner current plus 5
+# bindsym $mod+Shift+s	gaps inner current minus 5
 
 bindsym $mod+d			exec --no-startup-id dmenu_run
-bindsym $mod+Shift+d	gaps inner current set 0; gaps outer current set 0
+# bindsym $mod+Shift+d	gaps inner current set 0; gaps outer current set 0
 
 bindsym $mod+f			fullscreen toggle
 
@@ -311,8 +311,8 @@ bindsym $mod+l			focus right
 bindsym $mod+Shift+l	move right 30
 bindsym $mod+Ctrl+l		exec --no-startup-id i3resize right
 
-bindsym $mod+z			gaps outer current plus 5
-bindsym $mod+Shift+z	gaps outer current minus 5
+# bindsym $mod+z			gaps outer current plus 5
+# bindsym $mod+Shift+z	gaps outer current minus 5
 
 bindsym $mod+x			exec --no-startup-id lockscreen
 bindsym $mod+Shift+x	exec --no-startup-id prompt "Shutdown computer?" "$shutdown"
@@ -363,10 +363,13 @@ bindsym $mod+F5		exec --no-startup-id $netrefresh
 # bindsym $mod+F6		exec --no-startup-id $term -e transmission-remote-cli
 bindsym $mod+F7		exec --no-startup-id ~/bin/spotifyd-no-daemon
 bindsym $mod+F8		exec --no-startup-id ~/bin/droicam-lister
-bindsym $mod+F9		exec --no-startup-id dmenumount
-bindsym $mod+F10	exec --no-startup-id dmenuumount
+# bindsym $mod+F9		exec --no-startup-id dmenumount
+# bindsym $mod+F10	exec --no-startup-id dmenuumount
 # bindsym $mod+F11	exec --no-startup-id ducksearch
 # bindsym $mod+F12	exec $term -e nmtui
+bindsym $mod+F9		exec --no-startup-id lmc mute
+bindsym $mod+F10	exec --no-startup-id lmc down 5
+bindsym $mod+F11	exec --no-startup-id lmc up 5
 
 
 # #---Arrow Keys---# #
@@ -424,7 +427,7 @@ bindsym XF86PowerOff		exec --no-startup-id prompt "Shutdown computer?" "$shutdow
 bindsym XF86Calculator		exec $term -e R -q --no-save
 ##bindsym XF86Sleep		This binding is typically mapped by systemd automatically.
 ##bindsym XF86WakeUp		exec
-bindsym XF86Explorer		exec $term -e ranger
+bindsym XF86Explorer		exec $term -e vifm
 ##bindsym XF86Send		exec
 ##bindsym XF86Xfer		exec
 bindsym XF86WWW			exec --no-startup-id $BROWSER
@@ -433,7 +436,7 @@ bindsym XF86ScreenSaver		exec exec --no-startup-id lockscreen
 ##bindsym XF86RotateWindows	exec
 ##bindsym XF86TaskPane		exec
 ##bindsym XF86Favorites		exec
-bindsym XF86MyComputer		exec $term -e ranger
+bindsym XF86MyComputer		exec $term -e vifm
 ##bindsym XF86Back		exec
 ##bindsym XF86Forward		exec
 bindsym XF86Eject		exec --no-startup-id dmenuumount
@@ -474,7 +477,7 @@ bindsym XF86Search		exec $BROWSER https://duckduckgo.com
 ##bindsym XF86Go			exec
 ##bindsym XF86Finance		exec
 ##bindsym XF86Game		exec
-bindsym XF86Shop		exec $BROWSER https://ebay.com
+# bindsym XF86Shop		exec $BROWSER https://ebay.com
 bindsym XF86MonBrightnessDown	exec --no-startup-id xbacklight -dec 15
 bindsym XF86MonBrightnessUp	exec --no-startup-id xbacklight -inc 15
 bindsym XF86AudioMedia		exec --no-startup-id $term -e ncmpcpp
@@ -485,7 +488,7 @@ bindsym XF86Display		exec --no-startup-id arandr
 ##bindsym XF86Reply		exec
 ##bindsym XF86MailForward	exec
 ##bindsym XF86Save		exec
-bindsym XF86Documents		exec $term -e ranger ~/Documents
+bindsym XF86Documents		exec $term -e vifm ~/Documents
 ##bindsym XF86Battery		exec
 ##bindsym XF86Bluetooth		exec
 bindsym XF86WLAN		exec $netrefresh
