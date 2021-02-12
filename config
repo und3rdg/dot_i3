@@ -367,9 +367,14 @@ bindsym $mod+F8		exec --no-startup-id ~/bin/droicam-lister
 # bindsym $mod+F10	exec --no-startup-id dmenuumount
 # bindsym $mod+F11	exec --no-startup-id ducksearch
 # bindsym $mod+F12	exec $term -e nmtui
-bindsym $mod+F9		exec --no-startup-id lmc mute
-bindsym $mod+F10	exec --no-startup-id lmc down 5
-bindsym $mod+F11	exec --no-startup-id lmc up 5
+# bindsym $mod+F9		exec --no-startup-id lmc mute
+# bindsym $mod+F10	exec --no-startup-id lmc down 5
+# bindsym $mod+F11	exec --no-startup-id lmc up 5
+bindsym $mod+F9		exec --no-startup-id mypctl --mute
+bindsym Shift+$mod+F9		exec --no-startup-id mypctl --max
+bindsym Control+$mod+F9		exec --no-startup-id mypctl --normal
+bindsym $mod+F10	exec --no-startup-id mypctl --down
+bindsym $mod+F11	exec --no-startup-id mypctl --up
 
 
 # #---Arrow Keys---# #
@@ -411,13 +416,17 @@ bindsym XF86Launch1		exec --no-startup-id xset dpms force off
 
 # #---Extra XF86 Keys---# #
 # These are the extra media keys that some keyboards have.
-bindsym XF86AudioMute		exec --no-startup-id lmc mute
-bindsym XF86AudioLowerVolume	exec --no-startup-id lmc down 5
-bindsym Shift+XF86AudioLowerVolume	exec --no-startup-id lmc down 10
-bindsym Control+XF86AudioLowerVolume	exec --no-startup-id lmc down 1
-bindsym XF86AudioRaiseVolume	exec --no-startup-id lmc up 5
-bindsym Shift+XF86AudioRaiseVolume	exec --no-startup-id lmc up 10
-bindsym Control+XF86AudioRaiseVolume	exec --no-startup-id lmc up 1
+bindsym XF86AudioMute		exec --no-startup-id mypctl --mute
+bindsym Shift+XF86AudioMute		exec --no-startup-id mypctl --max
+bindsym Control+XF86AudioMute		exec --no-startup-id mypctl --normal
+bindsym XF86AudioLowerVolume	exec --no-startup-id mypctl --down
+bindsym XF86AudioRaiseVolume	exec --no-startup-id mypctl --up
+
+# bindsym Shift+XF86AudioLowerVolume	exec --no-startup-id lmc down 10
+# bindsym Control+XF86AudioLowerVolume	exec --no-startup-id lmc down 1
+# bindsym Shift+XF86AudioRaiseVolume	exec --no-startup-id lmc up 10
+# bindsym Control+XF86AudioRaiseVolume	exec --no-startup-id lmc up 1
+
 bindsym XF86PowerOff		exec --no-startup-id prompt "Shutdown computer?" "$shutdown"
 ##bindsym XF86Copy		exec
 ##bindsym XF86Open		exec
