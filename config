@@ -50,23 +50,23 @@ exec --no-startup-id barrier                                              # KVM 
 exec --no-startup-id flameshot                                            # screenshots
 
 # Set ~/.xresources colors:
-set_from_resource $darkblack    color0
-set_from_resource $black        color8
-set_from_resource $darkred      color1
-set_from_resource $red          color9
-set_from_resource $darkgreen    color2
-set_from_resource $green        color10
-set_from_resource $darkyellow   color3
-set_from_resource $yellow       color11
-set_from_resource $darkblue     color4
-set_from_resource $blue         color12
-set_from_resource $darkmagenta  color5
-set_from_resource $magenta      color13
-set_from_resource $darkcyan     color6
-set_from_resource $cyan         color14
-set_from_resource $darkwhite    color7
-set_from_resource $white        color15
-set $transparent
+set_from_resource $darkblack    color0  #000000
+set_from_resource $black        color8  #000000
+set_from_resource $darkred      color1  #000000
+set_from_resource $red          color9  #000000
+set_from_resource $darkgreen    color2  #000000
+set_from_resource $green        color10 #000000
+set_from_resource $darkyellow   color3  #000000
+set_from_resource $yellow       color11 #000000
+set_from_resource $darkblue     color4  #000000
+set_from_resource $blue         color12 #000000
+set_from_resource $darkmagenta  color5  #000000
+set_from_resource $magenta      color13 #000000
+set_from_resource $darkcyan     color6  #000000
+set_from_resource $cyan         color14 #000000
+set_from_resource $darkwhite    color7  #000000
+set_from_resource $white        color15 #000000
+set $transparent                        #000000
 
 #                       BORDER        BACKGROUND   TEXT      INDICATOR     CHILD_BORDER
 client.focused          $red          $red         $white    $darkmagenta  $darkred
